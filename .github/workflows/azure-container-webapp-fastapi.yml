@@ -6,8 +6,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         # checkout the repo
-        - name: 'Checkout GitHub Action'
-          uses: actions/checkout@FastAPIBackend
+        - name: 'Checkout FastAPI Branch'
+          uses: actions/checkout@v4
+          with:
+            ref: FastAPIBackend
         
         - name: 'Build and push image'
           uses: azure/docker-login@v1
