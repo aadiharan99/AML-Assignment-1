@@ -15,9 +15,13 @@ if input_method == "Manual Entry":
 if input_method == "File Input":
   st.warning("Upload only CSV files")
   prediction_file = st.file_uploader("Upload a file for prediction", type=["csv"])
-  preds_df = pd.read_csv(prediction_file)
 
-  st.write(preds_df)
+  submit_button = st.button("Upload for Processing")
+
+  if prediction_file is not None and submit_button:
+    preds_df = pd.read_csv(prediction_file)
+  
+    st.write(preds_df)
 
   
 
