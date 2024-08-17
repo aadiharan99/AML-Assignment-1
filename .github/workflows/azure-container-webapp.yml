@@ -17,6 +17,6 @@ jobs:
             password: ${{ secrets.AML_ACR_PASSWORD }}
         - run: |
             docker build . -t ${{ secrets.AML_ACR_LOGIN_SERVER }}/croprecommendation:${{ github.run_number }}
-            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/croprecommendation:${{ github.run_number }}
+            docker push ${{ secrets.AML_ACR_LOGIN_SERVER }}/croprecommendation:${{ github.run_number }}
 
         
