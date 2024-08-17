@@ -1,5 +1,5 @@
 on: [push]
-name: Linux_Container_Workflow
+name: FastAPIBackend
 
 jobs:
     build-and-deploy:
@@ -7,7 +7,7 @@ jobs:
         steps:
         # checkout the repo
         - name: 'Checkout GitHub Action'
-          uses: actions/checkout@main
+          uses: actions/checkout@FastAPIBackend
         
         - name: 'Build and push image'
           uses: azure/docker-login@v1
@@ -16,7 +16,7 @@ jobs:
             username: ${{ secrets.AML_ACR_USERNAME }}
             password: ${{ secrets.AML_ACR_PASSWORD }}
         - run: |
-            docker build . -t ${{ secrets.AML_ACR_LOGIN_SERVER }}/croprecommendation:${{ github.run_number }}
-            docker push ${{ secrets.AML_ACR_LOGIN_SERVER }}/croprecommendation:${{ github.run_number }}
+            docker build . -t ${{ secrets.AML_ACR_LOGIN_SERVER }}/fastapibackend:${{ github.run_number }}
+            docker push ${{ secrets.AML_ACR_LOGIN_SERVER }}/fastapibackend:${{ github.run_number }}
 
         
