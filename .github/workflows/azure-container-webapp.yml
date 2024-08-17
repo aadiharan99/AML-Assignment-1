@@ -1,5 +1,5 @@
 on: [push]
-name: Linux_Container_Workflow
+name: Streamlit Frontend
 
 jobs:
     build-and-deploy:
