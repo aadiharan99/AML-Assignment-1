@@ -32,7 +32,7 @@ async def predict_single(data:dict):
     # input_df = input_df[[df_columns]]
     input_df_copy = pd.DataFrame(standard_scaler.transform(input_df), columns=input_df.columns)
     print(input_df_copy)
-    preds = model.predict(input_df.values)
+    preds = model.predict(input_df_copy.values)
 
     input_df["recommended_crops"] = preds
 
